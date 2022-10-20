@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		526F15C229006CB8004175AB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F15C129006CB8004175AB /* Model.swift */; };
+		526F15C62901463B004175AB /* MeetupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F15C52901463B004175AB /* MeetupTableViewCell.swift */; };
 		52E588EE2900243800053D17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E588ED2900243800053D17 /* AppDelegate.swift */; };
 		52E588F02900243800053D17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E588EF2900243800053D17 /* SceneDelegate.swift */; };
 		52E588F22900243800053D17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E588F12900243800053D17 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		526F15C129006CB8004175AB /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		526F15C52901463B004175AB /* MeetupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupTableViewCell.swift; sourceTree = "<group>"; };
 		52E588EA2900243800053D17 /* LampApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LampApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E588ED2900243800053D17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52E588EF2900243800053D17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				52E588F62900243D00053D17 /* Assets.xcassets */,
 				52E588F82900243D00053D17 /* LaunchScreen.storyboard */,
 				52E588FB2900243D00053D17 /* Info.plist */,
+				526F15C129006CB8004175AB /* Model.swift */,
+				526F15C52901463B004175AB /* MeetupTableViewCell.swift */,
 			);
 			path = LampApp;
 			sourceTree = "<group>";
@@ -74,6 +80,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52E588FE2900243D00053D17 /* Build configuration list for PBXNativeTarget "LampApp" */;
 			buildPhases = (
+				52F1235629017E6F00167BE8 /* SwiftLint */,
 				52E588E62900243800053D17 /* Sources */,
 				52E588E72900243800053D17 /* Frameworks */,
 				52E588E82900243800053D17 /* Resources */,
@@ -133,14 +140,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		52F1235629017E6F00167BE8 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		52E588E62900243800053D17 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				52E588F22900243800053D17 /* ViewController.swift in Sources */,
+				526F15C62901463B004175AB /* MeetupTableViewCell.swift in Sources */,
 				52E588EE2900243800053D17 /* AppDelegate.swift in Sources */,
 				52E588F02900243800053D17 /* SceneDelegate.swift in Sources */,
+				526F15C229006CB8004175AB /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
