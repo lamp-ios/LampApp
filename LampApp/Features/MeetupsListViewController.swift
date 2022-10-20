@@ -1,6 +1,6 @@
 import UIKit
 
-class TableViewController: UITableViewController {
+final class MeetupsListViewController: UITableViewController {
     @IBAction func toNewMeetup(_ sender: Any) {
     }
 
