@@ -80,6 +80,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52E588FE2900243D00053D17 /* Build configuration list for PBXNativeTarget "LampApp" */;
 			buildPhases = (
+				52F1235629017E6F00167BE8 /* SwiftLint */,
 				52E588E62900243800053D17 /* Sources */,
 				52E588E72900243800053D17 /* Frameworks */,
 				52E588E82900243800053D17 /* Resources */,
@@ -138,6 +139,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		52F1235629017E6F00167BE8 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		52E588E62900243800053D17 /* Sources */ = {
