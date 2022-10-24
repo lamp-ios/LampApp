@@ -2,6 +2,7 @@ import UIKit
 
 final class MeetupsListViewController: UITableViewController {
     @IBAction func toNewMeetup(_ sender: Any) {
+        self.performSegue(withIdentifier: "add", sender: nil)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

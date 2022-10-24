@@ -15,6 +15,7 @@
 		52E588F52900243800053D17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52E588F32900243800053D17 /* Main.storyboard */; };
 		52E588F72900243D00053D17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E588F62900243D00053D17 /* Assets.xcassets */; };
 		52E588FA2900243D00053D17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52E588F82900243D00053D17 /* LaunchScreen.storyboard */; };
+		52F123612902E07800167BE8 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F123602902E07800167BE8 /* AddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		52E588F62900243D00053D17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52E588F92900243D00053D17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52E588FB2900243D00053D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52F123602902E07800167BE8 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				52E588F12900243800053D17 /* MeetupsListViewController.swift */,
+				52F123602902E07800167BE8 /* AddViewController.swift */,
 				52E588F32900243800053D17 /* Main.storyboard */,
 			);
 			path = Features;
@@ -183,6 +186,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		52F1235629017E6F00167BE8 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -208,6 +212,7 @@
 			files = (
 				52E588F22900243800053D17 /* MeetupsListViewController.swift in Sources */,
 				526F15C62901463B004175AB /* MeetupTableViewCell.swift in Sources */,
+				52F123612902E07800167BE8 /* AddViewController.swift in Sources */,
 				52E588EE2900243800053D17 /* AppDelegate.swift in Sources */,
 				52E588F02900243800053D17 /* SceneDelegate.swift in Sources */,
 				526F15C229006CB8004175AB /* Meetup.swift in Sources */,
@@ -358,7 +363,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LampApp/Info.plist;
+				INFOPLIST_FILE = LampApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -385,7 +390,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LampApp/Info.plist;
+				INFOPLIST_FILE = LampApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
