@@ -1,10 +1,26 @@
 import UIKit
+protocol ReturnDataProtocolDelegate: AnyObject {
+    func reloadCells()
+}
 
-final class MeetupsListViewController: UITableViewController {
+final class MeetupsListViewController: UITableViewController, ReturnDataProtocolDelegate {
+    func reloadCells() {
+        tableView.reloadData()
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "add" else { return }
+        guard
+            let destination = segue.destination as? UINavigationController,
+            let addVC = destination.viewControllers[0] as? AddViewController
+        else { return }
+        
+        addVC.delegate = self
+    }
+    
     @IBAction func toNewMeetup(_ sender: Any) {
         self.performSegue(withIdentifier: "add", sender: nil)
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
