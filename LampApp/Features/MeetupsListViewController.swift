@@ -7,20 +7,38 @@ final class MeetupsListViewController: UITableViewController, ReturnDataProtocol
     func reloadCells() {
         tableView.reloadData()
     }
+    var boxOfMeetups: Meetup?
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "add" else { return }
-        guard
-            let destination = segue.destination as? UINavigationController,
-            let addVC = destination.viewControllers[0] as? AddViewController
-        else { return }
-        
-        addVC.delegate = self
+        switch segue.identifier {
+        case "add":
+            guard
+                let destination = segue.destination as? UINavigationController,
+                let addVC = destination.viewControllers[0] as? AddViewController
+            else { return }
+            addVC.delegate = self
+        case "description":
+            guard
+                let destinationTwo = segue.destination as? MeetupDetailsViewController
+            else { return }
+            destinationTwo.meetup =  boxOfMeetups
+        default:
+            return
+        }
     }
     
     @IBAction func toNewMeetup(_ sender: Any) {
         self.performSegue(withIdentifier: "add", sender: nil)
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        let currentMeetup = meetupItems[indexPath.row]
+        boxOfMeetups = currentMeetup
+        performSegue(withIdentifier: "description", sender: nil)
+        
+    }
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
