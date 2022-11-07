@@ -1,6 +1,6 @@
 import UIKit
 
-final class AddViewController: UIViewController {
+final class AddMeetupViewController: UIViewController {
     
     @IBOutlet private var saveBarButton: UIBarButtonItem!
     @IBOutlet private var locationTextField: UITextField!
@@ -11,6 +11,32 @@ final class AddViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
+
+    }
+    
+    @IBAction private func cancelButtonTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
+    
+    @IBAction private func saveButtonTapped(_ sender: UIBarButtonItem) {
+        guard let locationText = locationTextField.text, !locationText.isEmpty else {
+            locationTextField.shake()
+            return
+        }
+        guard let descriptionText = descriptionTextField.text, !descriptionText.isEmpty else {
+            descriptionTextField.shake()
+            return
+        }
+        
+        let meetup = Meetup(title: locationText, date: datePicker.date, description: descriptionTextField.text ?? "" )
+        meetupItems.append(meetup)
+        dismiss(animated: true)
+        delegate?.reloadCells()
+    }
+    
+    private func configureUI() {
+        
         let borderColor: UIColor = UIColor(
             red: 0.85,
             green: 0.85,
@@ -23,29 +49,4 @@ final class AddViewController: UIViewController {
         datePicker.subviews.first?.semanticContentAttribute = .forceRightToLeft
     }
     
-    @IBAction private func cancelButtonTapped(_ sender: UIBarButtonItem) {
-        dismiss(animated: true)
-    }
-    
-    @IBAction private func saveButtonTapped(_ sender: UIBarButtonItem) {
-        guard let locationText = locationTextField.text, !locationText.isEmpty else {
-            locationTextField.shake()
-            return
-        }
-        
-        let meetup = Meetup(title: locationText, date: datePicker.date, description: descriptionTextField.text ?? "" )
-        meetupItems.append(meetup)
-        dismiss(animated: true)
-        delegate?.reloadCells()
-    }
-}
-
-extension UIView {
-    func shake() {
-        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
-        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-        animation.duration = 0.6
-        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
-        layer.add(animation, forKey: "shake")
-    }
 }

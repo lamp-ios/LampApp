@@ -3,38 +3,18 @@ protocol ReturnDataProtocolDelegate: AnyObject {
     func reloadCells()
 }
 
-final class MeetupsListViewController: UITableViewController, ReturnDataProtocolDelegate {
-    func reloadCells() {
-        tableView.reloadData()
-    }
-    var boxOfMeetups: Meetup?
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "add":
-            guard
-                let destination = segue.destination as? UINavigationController,
-                let addVC = destination.viewControllers[0] as? AddViewController
-            else { return }
-            addVC.delegate = self
-        case "description":
-            guard
-                let destinationTwo = segue.destination as? MeetupDetailsViewController
-            else { return }
-            destinationTwo.meetup =  boxOfMeetups
-        default:
-            return
-        }
-    }
+final class MeetupsListViewController: UITableViewController {
+ 
+    var selectedMeetup: Meetup?
     
     @IBAction func toNewMeetup(_ sender: Any) {
-        self.performSegue(withIdentifier: "add", sender: nil)
+    self.performSegue(withIdentifier: "add", sender: nil)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         let currentMeetup = meetupItems[indexPath.row]
-        boxOfMeetups = currentMeetup
+        selectedMeetup = currentMeetup
         performSegue(withIdentifier: "description", sender: nil)
         
     }
@@ -60,4 +40,39 @@ final class MeetupsListViewController: UITableViewController, ReturnDataProtocol
         cell.dateLabel.text = currentItem.date.formatted(date: .abbreviated, time: .omitted)
         return cell
     }
+    override func tableView(
+        _ tableView: UITableView,
+        commit editingStyle: UITableViewCell.EditingStyle,
+        forRowAt indexPath: IndexPath
+    ) {
+        if editingStyle == .delete {
+            meetupItems.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "add":
+            guard
+                let destination = segue.destination as? UINavigationController,
+                let addVC = destination.viewControllers[0] as? AddMeetupViewController
+            else { return }
+            addVC.delegate = self
+        case "description":
+            guard
+                let destinationTwo = segue.destination as? MeetupDetailsViewController
+            else { return }
+            destinationTwo.meetup =  selectedMeetup
+        default:
+            assertionFailure("Error")
+        }
+    }
+}
+
+extension MeetupsListViewController: ReturnDataProtocolDelegate {
+    
+    func reloadCells() {
+        tableView.reloadData()
+    }
+    
 }

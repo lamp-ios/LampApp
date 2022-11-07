@@ -2,9 +2,9 @@ import UIKit
 
 class MeetupDetailsViewController: UIViewController {
     
-    @IBOutlet var locationLabel: UILabel!
-    @IBOutlet var descriptionLabel: UILabel!
-    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet private var locationLabel: UILabel!
+    @IBOutlet private var descriptionLabel: UILabel!
+    @IBOutlet private var dateLabel: UILabel!
 
     public var meetup: Meetup?
     
@@ -19,15 +19,5 @@ class MeetupDetailsViewController: UIViewController {
     
     @IBAction func editButton(_ sender: UIBarButtonItem) {
         
-    }
-    
-}
-
-extension Date {
-    func dayMonthYearFormat() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .short
-        return dateFormatter.string(from: self)
     }
 }
