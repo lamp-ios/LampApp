@@ -1,7 +1,7 @@
 import UIKit
 
 extension UIView {
-    
+    // функция где происходит анимация при не заполнении филдов
     func shake() {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)

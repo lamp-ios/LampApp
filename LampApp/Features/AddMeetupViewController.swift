@@ -11,12 +11,24 @@ final class AddMeetupViewController: UIViewController {
     @IBOutlet private var descriptionTextField: UITextView!
     @IBOutlet private var datePicker: UIDatePicker!
     
+    public var meetup: Meetup?
+  
     weak var delegate: AddMeetupViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-
+        fillMeetupInfo()
+    }
+    
+    private func fillMeetupInfo() {
+        guard let meetup else {
+            return
+        }
+        
+        locationTextField.text = meetup.title
+        descriptionTextField.text = meetup.description
+        datePicker.date = meetup.date
     }
     
     @IBAction private func cancelButtonTapped(_ sender: UIBarButtonItem) {
@@ -34,7 +46,7 @@ final class AddMeetupViewController: UIViewController {
             return
         }
         
-        let meetup = Meetup(title: locationText, date: datePicker.date, description: descriptionTextField.text ?? "" )
+        let meetup = Meetup(title: locationText, date: datePicker.date, description: descriptionTextField.text)
         meetupItems.append(meetup)
         dismiss(animated: true)
         delegate?.didSaveMeetup()

@@ -1,11 +1,12 @@
 import Foundation
-
+// структура митап
 struct Meetup {
     var title: String
     var date: Date
     var description: String
 }
 
+// переменная в которой инициализируем экземпляры 
 var meetupItems: [Meetup] = [
     Meetup(
         title: "Офис ZeBrains",
