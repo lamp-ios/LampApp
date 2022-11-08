@@ -1,22 +1,16 @@
 import UIKit
-protocol ReturnDataProtocolDelegate: AnyObject {
-    func reloadCells()
-}
 
 final class MeetupsListViewController: UITableViewController {
  
-    var selectedMeetup: Meetup?
+    private var selectedMeetup: Meetup?
     
     @IBAction func toNewMeetup(_ sender: Any) {
     self.performSegue(withIdentifier: "add", sender: nil)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-        let currentMeetup = meetupItems[indexPath.row]
-        selectedMeetup = currentMeetup
+        selectedMeetup = meetupItems[indexPath.row]
         performSegue(withIdentifier: "description", sender: nil)
-        
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -40,6 +34,7 @@ final class MeetupsListViewController: UITableViewController {
         cell.dateLabel.text = currentItem.date.formatted(date: .abbreviated, time: .omitted)
         return cell
     }
+    
     override func tableView(
         _ tableView: UITableView,
         commit editingStyle: UITableViewCell.EditingStyle,
@@ -50,6 +45,7 @@ final class MeetupsListViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "add":
@@ -64,15 +60,13 @@ final class MeetupsListViewController: UITableViewController {
             else { return }
             destinationTwo.meetup =  selectedMeetup
         default:
-            assertionFailure("Error")
+            assertionFailure("Unexpected Segue Identifier")
         }
     }
 }
 
-extension MeetupsListViewController: ReturnDataProtocolDelegate {
-    
-    func reloadCells() {
+extension MeetupsListViewController: AddMeetupViewControllerDelegate {
+    func didSaveMeetup() {
         tableView.reloadData()
     }
-    
 }

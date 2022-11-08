@@ -1,5 +1,9 @@
 import UIKit
 
+protocol AddMeetupViewControllerDelegate: AnyObject {
+    func didSaveMeetup()
+}
+
 final class AddMeetupViewController: UIViewController {
     
     @IBOutlet private var saveBarButton: UIBarButtonItem!
@@ -7,7 +11,7 @@ final class AddMeetupViewController: UIViewController {
     @IBOutlet private var descriptionTextField: UITextView!
     @IBOutlet private var datePicker: UIDatePicker!
     
-    var delegate: ReturnDataProtocolDelegate?
+    weak var delegate: AddMeetupViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +24,7 @@ final class AddMeetupViewController: UIViewController {
     }
     
     @IBAction private func saveButtonTapped(_ sender: UIBarButtonItem) {
+        
         guard let locationText = locationTextField.text, !locationText.isEmpty else {
             locationTextField.shake()
             return
@@ -32,12 +37,12 @@ final class AddMeetupViewController: UIViewController {
         let meetup = Meetup(title: locationText, date: datePicker.date, description: descriptionTextField.text ?? "" )
         meetupItems.append(meetup)
         dismiss(animated: true)
-        delegate?.reloadCells()
+        delegate?.didSaveMeetup()
     }
     
     private func configureUI() {
         
-        let borderColor: UIColor = UIColor(
+        let borderColor = UIColor(
             red: 0.85,
             green: 0.85,
             blue: 0.85,
@@ -46,7 +51,6 @@ final class AddMeetupViewController: UIViewController {
         descriptionTextField.layer.borderColor = borderColor.cgColor
         descriptionTextField.layer.borderWidth = 0.5
         descriptionTextField.layer.cornerRadius = 5.0
-        datePicker.subviews.first?.semanticContentAttribute = .forceRightToLeft
     }
     
 }

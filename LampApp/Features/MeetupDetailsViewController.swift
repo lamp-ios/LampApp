@@ -1,6 +1,6 @@
 import UIKit
 
-class MeetupDetailsViewController: UIViewController {
+final class MeetupDetailsViewController: UIViewController {
     
     @IBOutlet private var locationLabel: UILabel!
     @IBOutlet private var descriptionLabel: UILabel!
@@ -18,6 +18,6 @@ class MeetupDetailsViewController: UIViewController {
     }
     
     @IBAction func editButton(_ sender: UIBarButtonItem) {
-        
+
     }
 }

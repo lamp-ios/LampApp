@@ -116,13 +116,18 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ta-jH-xXB">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="1jj-Ls-mcC">
                                         <rect key="frame" x="0.0" y="92.666666666666657" width="357" height="34.333333333333343"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="688583327.98154402">
-                                            <!--2022-10-27 17:08:47 +0000-->
-                                        </date>
-                                        <locale key="locale" localeIdentifier="ru_RU"/>
-                                    </datePicker>
+                                        <subviews>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ta-jH-xXB">
+                                                <rect key="frame" x="0.0" y="0.0" width="357" height="34.333333333333336"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="688583327.98154402">
+                                                    <!--2022-10-27 17:08:47 +0000-->
+                                                </date>
+                                                <locale key="locale" localeIdentifier="ru_RU"/>
+                                            </datePicker>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Описание: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXD-Yx-zjn">
                                         <rect key="frame" x="0.0" y="133" width="357" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
@@ -233,7 +238,7 @@
                     <navigationItem key="navigationItem" title="Description" id="s2x-re-asc">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="A8u-Em-X1d">
                             <connections>
-                                <action selector="saveButton:" destination="E25-yU-pSC" id="CXd-Um-hAf"/>
+                                <action selector="editButton:" destination="E25-yU-pSC" id="Vk9-dx-FPL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

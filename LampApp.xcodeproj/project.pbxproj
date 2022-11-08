@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		520EFC7B290BBEF400C5ED4C /* MeetupDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520EFC7A290BBEF400C5ED4C /* MeetupDetailsViewController.swift */; };
 		5247F4F92918F089001EE9A1 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5247F4F82918F089001EE9A1 /* UIView+Extensions.swift */; };
+		5247F4FC291A2E41001EE9A1 /* Date+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5247F4FB291A2E41001EE9A1 /* Date+Extentions.swift */; };
 		526F15C229006CB8004175AB /* Meetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F15C129006CB8004175AB /* Meetup.swift */; };
 		526F15C62901463B004175AB /* MeetupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F15C52901463B004175AB /* MeetupTableViewCell.swift */; };
 		52E588EE2900243800053D17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E588ED2900243800053D17 /* AppDelegate.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		520EFC7A290BBEF400C5ED4C /* MeetupDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupDetailsViewController.swift; sourceTree = "<group>"; };
 		5247F4F82918F089001EE9A1 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		5247F4FB291A2E41001EE9A1 /* Date+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extentions.swift"; sourceTree = "<group>"; };
 		526F15C129006CB8004175AB /* Meetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meetup.swift; sourceTree = "<group>"; };
 		526F15C52901463B004175AB /* MeetupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupTableViewCell.swift; sourceTree = "<group>"; };
 		52E588EA2900243800053D17 /* LampApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LampApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5247F4FA291A2DC4001EE9A1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5247F4F82918F089001EE9A1 /* UIView+Extensions.swift */,
+				5247F4FB291A2E41001EE9A1 /* Date+Extentions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		52E588E12900243800053D17 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +77,7 @@
 		52E588EC2900243800053D17 /* LampApp */ = {
 			isa = PBXGroup;
 			children = (
+				5247F4FA291A2DC4001EE9A1 /* Extensions */,
 				52F1235729018A0800167BE8 /* App */,
 				52F1235929018A4900167BE8 /* Features */,
 				52F1235A29018A5E00167BE8 /* Cells */,
@@ -100,7 +112,6 @@
 				52E588F12900243800053D17 /* MeetupsListViewController.swift */,
 				52F123602902E07800167BE8 /* AddMeetupViewController.swift */,
 				520EFC7A290BBEF400C5ED4C /* MeetupDetailsViewController.swift */,
-				5247F4F82918F089001EE9A1 /* UIView+Extensions.swift */,
 				52E588F32900243800053D17 /* Main.storyboard */,
 			);
 			path = Features;
@@ -223,6 +234,7 @@
 				52E588EE2900243800053D17 /* AppDelegate.swift in Sources */,
 				52E588F02900243800053D17 /* SceneDelegate.swift in Sources */,
 				5247F4F92918F089001EE9A1 /* UIView+Extensions.swift in Sources */,
+				5247F4FC291A2E41001EE9A1 /* Date+Extentions.swift in Sources */,
 				526F15C229006CB8004175AB /* Meetup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
